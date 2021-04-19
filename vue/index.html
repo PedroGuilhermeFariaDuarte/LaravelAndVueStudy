@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue Mastery</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./src/global/guide/index.css" />
+  <link rel="stylesheet" href="./src/global/styles/index.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="wrapper">
+      <div class="container" id="showcase"></div>
+      <div class="container" id="form-container">
+        <div id="header-form">{{page.header.title}}</div>
+        <form :name="form.name">
+          <li v-for="field in form.fields" style="list-style: none;">
+            <label :for="field.name">{{field.name}}</label>
+            <input :id="field.name" :name="field.name" :type="field.type" :placeholder="field.placeholder"
+              :required="field.required" :maxlength="field.maxlength" pattern="field.pattern" :v-model="field.name" />
+          </li>
+          <button type="button" @click="submitForm">
+            Sign In
+          </button>
+        </form>
+        <a href="./src/pages/SignUp/index.html">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <!-- Import App -->
+  <script src="./src/Apps/SignIn/index.js"></script>
+  <script>
+    SignInApp.mount("#app")
+  </script>
+</body>
+
+</html>

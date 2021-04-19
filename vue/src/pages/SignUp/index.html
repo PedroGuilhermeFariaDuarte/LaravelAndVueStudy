@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="../../global/guide/index.css" />
+  <link rel="stylesheet" href="../../global/styles/index.css" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="wrapper">
+      <div class="container" id="showcase"></div>
+      <div class="container" id="form-container">
+        <div id="header-form">{{page.header.title}}</div>
+        <form :name="form.name">
+          <li v-for="field in form.fields" style="list-style: none;">
+            <label :for="field.name">{{field.name}}</label>
+            <input :id="field.name" :name="field.name" :type="field.type" :placeholder="field.placeholder"
+              :required="field.required" :maxlength="field.maxlength" :pattern="field.pattern" :v-model="field.name" />
+          </li>
+          <input type="hidden" name="user_uuid" value="c470334d-e529-30ba-7230-9e7d31c93e55" />
+          <button type="button" @click="submitForm">
+            Sign Up
+          </button>
+        </form>
+        <a href="../../../index.html">Sign In</a>
+      </div>
+    </div>
+  </div>
+  <!-- Import App -->
+  <script src="../../Apps/SignUp/index.js"></script>
+  <script>
+    SignUpApp.mount("#app")
+  </script>
+</body>
+
+</html>

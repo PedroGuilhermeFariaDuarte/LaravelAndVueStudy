@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="../../global/guide/index.css" />
+  <link rel="stylesheet" href="../../global/styles/index.css" />
+  <link rel="stylesheet" href="../../../styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Import Components -->
+  <script src="../../components/List/index.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="wrapper">
+      <div class="container container-header">
+        <header>
+
+        </header>
+      </div>
+      <div class="container container_main">
+        <div id="container_menu">
+          <ul v-for="item in page.menu" :key="item.name" class="ul-container">
+            <li class="li-container">
+              <span>
+                <span>
+                  <!--Icon Menu-->
+                </span>
+                {{item.name}}
+              </span>
+              <!-- <list-components submenu="item.subMenu" :key="item.name"></list-components> -->
+              <ul v-if="item.subMenu.length > 0" class="li-ul-container">
+                <span v-for="subItem in item.subMenu">
+                  <li>
+                    {{subItem.name}}
+                  </li>
+                </span>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Import App -->
+  <script src="../../Apps/Home/index.js"></script>
+
+  <script>
+    HomeApp.mount("#app")
+  </script>
+</body>
+
+</html>
